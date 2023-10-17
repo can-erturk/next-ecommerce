@@ -1,19 +1,32 @@
 import axios from "axios"
+import store from "@/lib/redux"
+import { setMessage } from "@/lib/redux/validation"
+import { showToast } from "@/lib/helpers/showToast"
+import { authSuccess } from "./authSuccess"
 
 export default async function handleRegister(email, password) {
   try {
-    // Try to register
     const res = await axios.post("/api/user/register", {
       email,
       password
     })
 
-    // Data coming from the server
-    // Temporary, will be removed in the future
-    console.log(res.data)
+    // Get the status and message from the response
+    const { status, message } = res.data
 
-    // TODO: Login automatically after registration is successful
-    // TODO: Show messages to the user
+    // If the register was successful
+    if (status === 201) {
+      authSuccess(email, password)
+      showToast.register(email)
+    }
+
+    // If the register was unsuccessful
+    if (status !== 201) {
+      store.dispatch(setMessage({
+        form: "authForm",
+        message,
+      }))
+    }
 
   } catch (error) {
     console.log(error)

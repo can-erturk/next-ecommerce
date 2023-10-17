@@ -1,28 +1,32 @@
-import { signIn } from "next-auth/react"
 import axios from "axios"
+import store from "@/lib/redux"
+import { setMessage } from "@/lib/redux/validation"
+import { showToast } from "@/lib/helpers/showToast"
+import { authSuccess } from "./authSuccess"
 
 export default async function handleLogin(email, password) {
   try {
-    // Try to login
     const res = await axios.post("/api/user/login", {
       email,
       password,
     })
 
+    // Get the status and message from the response
+    const { status, message } = res.data
+
     // If the login was successful
-    if (res.data.status === 200) {
-      signIn('credentials', {
-        email,
-        password,
-        redirect: false,
-      })
+    if (status === 200) {
+      authSuccess(email, password)
+      showToast.login(email)
     }
 
-    // Data coming from the server
-    // Temporary, will be removed in the future
-    console.log(res.data)
-
-    // TODO: Show messages to the user
+    // If the login was unsuccessful
+    if (status !== 200) {
+      store.dispatch(setMessage({
+        form: "authForm",
+        message,
+      }))
+    }
 
   } catch (error) {
     console.log(error)

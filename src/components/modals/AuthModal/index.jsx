@@ -1,18 +1,22 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { toggleModal } from "@/lib/redux/modal"
 import { Tab, Dialog } from '@headlessui/react'
 import LoginTab from "./LoginTab"
 import RegisterTab from "./RegisterTab"
 import CloseBtn from "./ui/CloseBtn"
+import { clearMessage } from "@/lib/redux/validation"
 
 
 export default function AuthModal() {
 
   // Get modal state
   const isOpen = useSelector((state) => state.modal.authModal)
+
+  // Get form message
+  const { message } = useSelector((state) => state.validation.authForm)
 
   // Dispatch modal state
   const dispatch = useDispatch()
@@ -24,6 +28,12 @@ export default function AuthModal() {
   const tabButtonsClass = (tab) => (
     "modal-tab-btn " + (activeTab == tab && "bg-white shadow")
   )
+
+  // Clear form message when switch tab
+  // Or when the modal is closed
+  useEffect(() => {
+    dispatch(clearMessage({ form: "authForm" }))
+  }, [activeTab, isOpen])
 
   return (
     <Dialog as="div" className="modal-backdrop" onClose={closeModal} open={isOpen}>
@@ -41,6 +51,12 @@ export default function AuthModal() {
 
             <CloseBtn onClick={closeModal} />
           </Dialog.Title>
+
+          {message && (
+            <div className="mb-6 text-sm max-sm:py-2 bg-red-100 py-3 px-4 rounded-lg text-red-500">
+              {message}
+            </div>
+          )}
 
           <Tab.Panels>
             {/* Login tab */}
