@@ -1,28 +1,17 @@
 import { toast } from "react-toastify"
 
-const login = (user = "") => {
+const login = () => {
   toast.info(
-    <div className="text-black text-sm flex flex-col">
-      <span>Welcome {user}!</span>
-      <span>You are now logged in.</span>
+    <div className="text-black text-sm">
+      Welcome back! You are now logged in.
     </div>
   )
 }
 
-const register = (user = "") => {
+const register = () => {
   toast.info(
-    <div className="text-black text-sm flex flex-col">
-      <span>Welcome {user}!</span>
-      <span>You are now registered and logged in.</span>
-    </div>
-  )
-}
-
-const logout = () => {
-  toast.info(
-    <div className="text-black text-sm flex flex-col">
-      <span>You have logged out.</span>
-      <span>Your session has been safely terminated.</span>
+    <div className="text-black text-sm">
+      You are now registered and logged in.
     </div>
   )
 }
@@ -31,5 +20,4 @@ const logout = () => {
 export const showToast = {
   login,
   register,
-  logout,
 }
