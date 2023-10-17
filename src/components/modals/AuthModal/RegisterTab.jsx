@@ -17,9 +17,10 @@ export default function RegisterTab() {
     // Extract form data
     const email = formData.get("email")
     const password = formData.get("password")
+    const privacyPolicy = formData.get("privacyPolicy")
 
     // Handle login
-    handleRegister(email, password)
+    handleRegister(email, password, privacyPolicy)
   }
 
   return (

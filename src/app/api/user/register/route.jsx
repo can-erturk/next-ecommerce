@@ -9,11 +9,12 @@ const responses = {
   emptyFields: { status: 400, message: "Email and password fields are required." },
   invalidEmail: { status: 400, message: "Email is invalid." },
   userExists: { status: 400, message: "User already exists." },
+  privacyPolicy: { status: 400, message: "You must accept the privacy policy." },
 }
 
 export async function POST(request) {
 
-  const { email, password } = await request.json()
+  const { email, password, privacyPolicy } = await request.json()
 
   // Hash the password
   const hashedPassword = await bcrypt.hash(password, 10)
@@ -26,6 +27,11 @@ export async function POST(request) {
   // If email is invalid
   if (!emailRegex.test(email)) {
     return response(responses.invalidEmail)
+  }
+
+  // If privacy policy is not accepted
+  if (privacyPolicy !== "on") {
+    return response(responses.privacyPolicy)
   }
 
   try {
