@@ -4,6 +4,7 @@
 // Add user data to token
 export default async function jwt({ user, token }) {
   if (user) {
+    token.name = user.name
     token.email = user.email
     token.id = user.id
   }
