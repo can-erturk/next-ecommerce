@@ -16,6 +16,8 @@ export default function PasswordInput() {
           type={showPassword ? "text" : "password"}
           name="password"
           id="password"
+          required
+          autoComplete="current-password"
           className="w-full py-3 px-4 max-sm:py-2 border border-darken rounded-md outline-none text-sm"
         />
 

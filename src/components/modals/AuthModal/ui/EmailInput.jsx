@@ -9,6 +9,8 @@ export default function EmailInput() {
           type="email"
           name="email"
           id="email"
+          required
+          autoComplete="email"
           className="w-full py-3 px-4 max-sm:py-2 border border-darken rounded-md outline-none text-sm"
         />
       </div>

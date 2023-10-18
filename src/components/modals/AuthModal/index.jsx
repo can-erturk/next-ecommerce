@@ -41,7 +41,7 @@ export default function AuthModal() {
         <Tab.Group selectedIndex={activeTab} onChange={setActiveTab}>
 
           <Dialog.Title as="div" className="pb-8 pt-6 text-sm text-gray-700 relative">
-            <h2 className="mb-4 sm:mb-8 text-lg sm:text-3xl text-center">Welcome to Nexton!</h2>
+            <h2 className="mb-4 sm:mb-8 text-lg sm:text-2xl text-center">Welcome to Nexton!</h2>
 
             {/* Buttons to switch between login and register */}
             <Tab.List as="div" className="flex text-center bg-gray-300/30 rounded-lg p-1 select-none">
