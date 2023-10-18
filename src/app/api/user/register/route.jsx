@@ -6,7 +6,7 @@ import { emailRegex } from "@/lib/helpers/regex"
 
 const responses = {
   success: { status: 201, message: "User successfully registered." },
-  emptyFields: { status: 400, message: "Email and password fields are required." },
+  emptyFields: { status: 400, message: "All fields are required." },
   invalidEmail: { status: 400, message: "Email is invalid." },
   userExists: { status: 400, message: "User already exists." },
   privacyPolicy: { status: 400, message: "You must accept the privacy policy." },
@@ -14,13 +14,13 @@ const responses = {
 
 export async function POST(request) {
 
-  const { email, password, privacyPolicy } = await request.json()
+  const { name, email, password, privacyPolicy } = await request.json()
 
   // Hash the password
   const hashedPassword = await bcrypt.hash(password, 10)
 
   // If email or password are empty
-  if (email === "" || password === "") {
+  if (name === "" || email === "" || password === "") {
     return response(responses.emptyFields)
   }
 
@@ -46,7 +46,7 @@ export async function POST(request) {
     }
 
     // Save user to database if user doesn't exist
-    await User.create({ email, password: hashedPassword })
+    await User.create({ name, email, password: hashedPassword })
 
     // Return success message
     return response(responses.success)

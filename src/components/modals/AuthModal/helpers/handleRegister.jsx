@@ -4,9 +4,10 @@ import { setMessage } from "@/lib/redux/validation"
 import { showToast } from "@/lib/helpers/showToast"
 import { authSuccess } from "./authSuccess"
 
-export default async function handleRegister(email, password, privacyPolicy) {
+export default async function handleRegister(name, email, password, privacyPolicy) {
   try {
     const res = await axios.post("/api/user/register", {
+      name,
       email,
       password,
       privacyPolicy,

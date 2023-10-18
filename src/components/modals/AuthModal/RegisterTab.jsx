@@ -5,6 +5,7 @@ import ContinueBtn from "./ui/ContinueBtn"
 import ContinueWithGoogle from "./ui/ContinueWithGoogle"
 import ActionButtons from "./ui/ActionButtons"
 import handleRegister from "./helpers/handleRegister"
+import NameInput from "./ui/NameInput"
 
 export default function RegisterTab() {
 
@@ -15,16 +16,21 @@ export default function RegisterTab() {
     const formData = new FormData(e.currentTarget)
 
     // Extract form data
+    const name = formData.get("name")
     const email = formData.get("email")
     const password = formData.get("password")
     const privacyPolicy = formData.get("privacyPolicy")
 
     // Handle login
-    handleRegister(email, password, privacyPolicy)
+    handleRegister(name, email, password, privacyPolicy)
   }
 
   return (
     <form onSubmit={handleForm}>
+
+      {/* Name input */}
+      <NameInput />
+
       {/* Email input */}
       <EmailInput />
 
