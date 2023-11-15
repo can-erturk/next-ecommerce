@@ -4,10 +4,10 @@ import { AiOutlineUser } from "react-icons/ai"
 import { useDispatch } from "react-redux"
 import { toggleModal } from "@/lib/redux/modal"
 import { useSession } from "next-auth/react"
-import HeaderUserDropdown from "./HeaderUserDropdown"
+import HeaderUserDropdown from "@/components/ui/dropdowns/HeaderUserDropdown"
 
 
-export default function HeaderSinginBtn() {
+export default function HeaderSigninBtn() {
 
   // Check if the user is logged in
   const { data: session } = useSession()

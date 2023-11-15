@@ -1,8 +1,8 @@
 import Logo from "@/components/ui/Logo"
 import SearchBar from "@/components/SearchBar"
-import HeaderSinginBtn from "@/components/ui/HeaderSinginBtn"
-import HeaderCartBtn from "@/components/ui/HeaderCartBtn"
-import HeaderBarsBtn from "@/components/ui/HeaderBarsBtn"
+import HeaderSinginBtn from "@/components/ui/buttons/HeaderSigninBtn"
+import HeaderCartBtn from "@/components/ui/buttons/HeaderCartBtn"
+import HeaderBarsBtn from "@/components/ui/buttons/HeaderBarsBtn"
 
 export default function Header() {
   return (
