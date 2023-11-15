@@ -6,7 +6,7 @@ import { FiLogOut } from "react-icons/fi"
 
 export default function HeaderUserDropdown({ name = "" }) {
   return (
-    <Menu as="div" className="relative z-[150]">
+    <Menu as="div" className="relative z-20">
       <Menu.Button className="header-btn">
         <AiOutlineUser size={20} />
         <span className="ml-1 mt-[1px] font-medium text-sm max-lg:hidden">{name}</span>
