@@ -4,6 +4,7 @@ import Provider from '@/lib/Provider'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import ModalContainer from '@/components/layout/ModalContainer'
+import Sidebar from '@/components/layout/Sidebar'
 
 
 const poppins = Poppins({
@@ -28,6 +29,7 @@ export default function RootLayout({ children }) {
 
           <Footer />
 
+          <Sidebar />
           <ModalContainer />
         </Provider>
       </body>
