@@ -6,8 +6,20 @@
 
 @layer base {
 
+    html {
+        @apply h-full overflow-x-hidden
+    }
+
     body {
-        @apply flex flex-col text-black
+        @apply min-h-full overflow-x-hidden flex flex-col text-black
+    }
+
+    body>main {
+        @apply flex-grow
+    }
+
+    body> :is(header, footer) {
+        @apply flex-shrink-0
     }
 }
 
