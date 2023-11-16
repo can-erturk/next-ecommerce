@@ -29,9 +29,9 @@ export async function GET(req, res) {
   }
 
   // Search for results
-  const categories = await Category.find(searchCriteria).select('category_id title path')
-  const collections = await Collection.find(searchCriteria).select('collection_id title path')
-  const findProducts = await Product.find(searchCriteria).select('product_id title path performance')
+  const categories = await Category.find(searchCriteria).select('category_id title path -_id')
+  const collections = await Collection.find(searchCriteria).select('collection_id title path -_id')
+  const findProducts = await Product.find(searchCriteria).select('product_id title path performance -_id')
 
   // Sort products by sales
   const products = findProducts.sort((a, b) => {
