@@ -1,13 +1,24 @@
+"use client"
+
 import Logo from "@/components/ui/Logo"
 import SearchBar from "@/components/SearchBar"
 import HeaderSinginBtn from "@/components/ui/buttons/HeaderSigninBtn"
 import HeaderCartBtn from "@/components/ui/buttons/HeaderCartBtn"
 import HeaderBarsBtn from "@/components/ui/buttons/HeaderBarsBtn"
+import useScrollPosition from "@/lib/hooks/useSrollPosition"
+import classNames from "classnames"
 
 export default function Header() {
+
+  // Get scroll position
+  const scrollPosition = useScrollPosition()
+
+  // Check if scroll position is enough
+  const isSticky = scrollPosition.y > 250
+
   return (
-    <header className="h-max border-b border-default">
-      <div className="container h-24 max-sm:h-20 flex justify-between items-center flex-wrap">
+    <header className={classNames('header', { 'sticky-header': isSticky })}>
+      <div className="container h-full flex justify-between items-center flex-wrap">
 
         {/* Logo area */}
         <div>

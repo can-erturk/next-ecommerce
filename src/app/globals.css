@@ -14,8 +14,9 @@
         @apply min-h-full overflow-x-hidden flex flex-col text-black
     }
 
+    /* padding-top must be equal to header height before sticky */
     body>main {
-        @apply flex-grow
+        @apply flex-grow pt-24 max-sm:pt-20
     }
 
     body> :is(header, footer) {
@@ -86,5 +87,23 @@
 
     .mobile-sidebar.sidebar-show+.sidebar-backdrop {
         @apply lg:hidden pointer-events-auto opacity-100
+    }
+
+    .header {
+        @apply absolute top-0 left-0 right-0 w-full h-24 max-sm:h-20 border-b border-default bg-white z-50 transition-[height]
+    }
+
+    .header.sticky-header {
+        @apply animate-[slideDown_0.5s_ease] fixed top-0 left-0 right-0 z-50 h-[4.5rem] max-sm:h-16 shadow-md
+    }
+}
+
+@keyframes slideDown {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(0);
     }
 }
