@@ -41,12 +41,12 @@
 
     .modal-backdrop,
     .modal-nested-backdrop {
-        @apply z-[50] fixed inset-0 overflow-y-auto flex min-h-full items-center justify-center p-4 text-center bg-black bg-opacity-30
+        @apply z-[150] fixed inset-0 overflow-y-auto flex min-h-full items-center justify-center p-4 text-center bg-black bg-opacity-30
     }
 
     .modal-dialog,
     .modal-nested-dialog {
-        @apply w-full max-w-md text-left transform overflow-hidden rounded-lg bg-white py-10 px-6 sm:px-14 max-sm:pb-6
+        @apply w-full max-w-md text-left transform overflow-hidden rounded-lg bg-white py-10 px-6 sm:px-14 max-sm:pb-6 z-[151]
     }
 
     .modal-nested-backdrop {
@@ -66,7 +66,7 @@
     }
 
     .mobile-sidebar {
-        @apply md:hidden max-md:flex fixed -right-full top-0 bg-[rgba(255,255,255,.9)] backdrop-blur-sm h-full flex-col z-40 w-60 max-w-full pt-16 items-start p-4 transition-all overflow-auto
+        @apply md:hidden max-md:flex fixed -right-full top-0 bg-[rgba(255,255,255,.9)] backdrop-blur-sm h-full flex-col z-[51] w-60 max-w-full pt-16 items-start p-4 transition-all overflow-auto
     }
 
     .mobile-sidebar .mobile-sidebar-btn {
@@ -82,7 +82,7 @@
     }
 
     .sidebar-backdrop {
-        @apply md:hidden bg-[rgba(0,0,0,0.45)] fixed top-0 left-0 right-0 w-[100vw] h-[100vh] z-30 transition-all opacity-0 pointer-events-none
+        @apply md:hidden bg-[rgba(0,0,0,0.45)] fixed top-0 left-0 right-0 w-[100vw] h-[100vh] z-[50] transition-all opacity-0 pointer-events-none
     }
 
     .mobile-sidebar.sidebar-show+.sidebar-backdrop {
@@ -90,11 +90,11 @@
     }
 
     .header {
-        @apply absolute top-0 left-0 right-0 w-full h-24 max-sm:h-20 border-b border-default bg-white z-50 transition-[height]
+        @apply absolute top-0 left-0 right-0 w-full h-24 max-sm:h-20 border-b border-default bg-white z-40 transition-[height]
     }
 
     .header.sticky-header {
-        @apply animate-[slideDown_0.5s_ease] fixed top-0 left-0 right-0 z-50 h-[4.5rem] max-sm:h-16 shadow-md
+        @apply animate-[slideDown_0.5s_ease] fixed top-0 left-0 right-0 z-40 h-[4.5rem] max-sm:h-16 shadow-md
     }
 }
 
