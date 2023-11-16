@@ -29,24 +29,9 @@ export async function GET(req, res) {
   }
 
   // Search for results
-  const categories = await Category.find(searchCriteria)
-  const collections = await Collection.find(searchCriteria)
-  const products = await Product.find(searchCriteria)
+  const categories = await Category.find(searchCriteria).select('category_id title path')
+  const collections = await Collection.find(searchCriteria).select('collection_id title path')
+  const products = await Product.find(searchCriteria).select('product_id title path')
 
-  // Result processor function
-  const processResult = (result) => ({
-    id: result._id,
-    title: result.title,
-    path: result.path
-  })
-
-  // Define result object
-  let result = {}
-
-  // Process results
-  result.categories = categories.map(processResult)
-  result.collections = collections.map(processResult)
-  result.products = products.map(processResult)
-
-  return NextResponse.json(result)
+  return NextResponse.json({ categories, collections, products })
 }
