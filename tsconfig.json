@@ -25,7 +25,6 @@
       "@helpers/*": ["./src/lib/helpers/*"],
       "@providers/*": ["./src/lib/providers/*"],
       "@stores/*": ["./src/lib/stores/*"],
-      "@types/*": ["./src/types/*"],
       "@models/*": ["./src/models/*"]
     },
     "allowImportingTsExtensions": true
