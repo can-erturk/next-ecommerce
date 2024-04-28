@@ -10,13 +10,15 @@ const userSchema: Schema<UserType> = new Schema(
     },
     activation: {
       type: {
-        status: String,
-        code: String,
+        status: Boolean,
+        key: String,
+        keyExpires: Date,
       },
       required: true,
       default: {
-        status: 'pending',
-        code: '',
+        status: false,
+        key: '',
+        keyExpires: new Date(),
       },
     },
     name: {

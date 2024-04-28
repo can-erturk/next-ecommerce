@@ -3,8 +3,9 @@ import { Document } from 'mongoose';
 export type UserType = Document & {
   provider: string;
   activation: {
-    status: string;
-    code: string;
+    status: boolean;
+    key: string;
+    keyExpires: Date;
   };
   name: string;
   email: string;
