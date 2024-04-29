@@ -6,16 +6,16 @@ import { CategoryType } from '@/types/mongoose/category.type';
 
 export async function GET(req: NextRequest) {
   const { searchParams }: URL = new URL(req.url);
-  const categoryID: string | null = searchParams.get('id');
+  const category_id: string | null = searchParams.get('category_id');
   const path: string | null = searchParams.get('path');
 
   try {
     await connectDB();
 
     // Find and return category by id
-    if (categoryID) {
+    if (category_id) {
       const category: CategoryType | null = await Category.findOne({
-        category_id: categoryID,
+        category_id,
       });
 
       if (category) {
