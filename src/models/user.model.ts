@@ -21,6 +21,10 @@ const userSchema: Schema<UserType> = new Schema(
         keyExpires: new Date(),
       },
     },
+    username: {
+      type: String,
+      required: true,
+    },
     name: {
       type: String,
       required: true,

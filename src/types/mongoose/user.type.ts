@@ -7,6 +7,7 @@ export type UserType = Document & {
     key: string;
     keyExpires: Date;
   };
+  username: string;
   name: string;
   email: string;
   password: string;
