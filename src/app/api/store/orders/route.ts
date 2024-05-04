@@ -1,6 +1,6 @@
 import connectDB from '@/config/mongodb/connectDB';
 import Order from '@models/order.model';
-import response from '@helpers/response';
+import response from '@api-helpers/response';
 import { NextRequest } from 'next/server';
 import { OrderType } from '@/types/mongoose/order.type';
 

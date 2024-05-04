@@ -2,7 +2,7 @@ import { NextRequest } from 'next/server';
 import connectDB from '@/config/mongodb/connectDB';
 import User from '@models/user.model';
 import bcrypt from 'bcryptjs';
-import response from '@helpers/response';
+import response from '@api-helpers/response';
 import { UserType } from '@/types/mongoose/user.type';
 import { emailRegex } from '@/lib/utils/regex';
 

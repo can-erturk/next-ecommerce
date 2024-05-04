@@ -1,7 +1,7 @@
 import connectDB from '@/config/mongodb/connectDB';
 import Product from '@models/product.model';
 import Category from '@models/category.model';
-import response from '@helpers/response';
+import response from '@api-helpers/response';
 import { NextRequest } from 'next/server';
 
 export async function GET(req: NextRequest) {

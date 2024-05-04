@@ -1,6 +1,6 @@
 import connectDB from '@/config/mongodb/connectDB';
 import Category from '@models/category.model';
-import response from '@helpers/response';
+import response from '@api-helpers/response';
 import { NextRequest } from 'next/server';
 import { CategoryType } from '@/types/mongoose/category.type';
 

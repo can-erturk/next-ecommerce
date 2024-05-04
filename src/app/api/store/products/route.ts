@@ -1,6 +1,6 @@
 import connectDB from '@/config/mongodb/connectDB';
 import Product from '@models/product.model';
-import response from '@helpers/response';
+import response from '@api-helpers/response';
 import { NextRequest } from 'next/server';
 import { ProductType } from '@/types/mongoose/product.type';
 

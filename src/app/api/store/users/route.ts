@@ -1,7 +1,7 @@
 import connectDB from '@/config/mongodb/connectDB';
 import User from '@models/user.model';
 import { isValidObjectId } from 'mongoose';
-import response from '@helpers/response';
+import response from '@api-helpers/response';
 import { NextRequest } from 'next/server';
 import { UserType } from '@/types/mongoose/user.type';
 
