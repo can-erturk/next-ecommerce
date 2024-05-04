@@ -23,7 +23,8 @@
       "@helpers/*": ["./src/lib/helpers/*"],
       "@stores/*": ["./src/lib/stores/*"],
       "@models/*": ["./src/models/*"],
-      "@services/*": ["./src/services/*"]
+      "@services/*": ["./src/services/*"],
+      "@api-helpers/*": ["./src/app/api/__helpers__/*"]
     },
     "allowImportingTsExtensions": true
   },
