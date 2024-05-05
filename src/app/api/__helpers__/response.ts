@@ -1,10 +1,10 @@
 import { NextResponse } from 'next/server';
 
-interface ResponseParams {
+type ResponseParams = {
   status: number;
   message?: string;
   data?: any;
-}
+};
 
 export default function response({
   status,

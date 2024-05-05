@@ -1,17 +1,17 @@
 import { Session, User } from 'next-auth';
 import { JWT } from 'next-auth/jwt';
 
-interface JWTParams {
+type JWTParams = {
   token: JWT;
   user: User;
-}
+};
 
-interface SessionParams {
+type SessionParams = {
   session: Session;
   token: JWT;
-}
+};
 
-const jwt = async ({ token, user }: JWTParams) => {
+const jwt = ({ token, user }: JWTParams): JWT => {
   if (user) {
     token._id = user._id;
     token.username = user.username;
@@ -21,7 +21,7 @@ const jwt = async ({ token, user }: JWTParams) => {
   return token;
 };
 
-const session = ({ session, token }: SessionParams) => {
+const session = ({ session, token }: SessionParams): Session => {
   if (token) {
     session.user.username = token.username;
     session.user.email = token.email;
@@ -30,11 +30,5 @@ const session = ({ session, token }: SessionParams) => {
   return session;
 };
 
-type callbacksType = {
-  jwt: ({ token, user }: JWTParams) => Promise<JWT>;
-  session: ({ session, token }: SessionParams) => Session;
-};
-
-const callbacks: callbacksType = { jwt, session };
-
+const callbacks = { jwt, session };
 export default callbacks;

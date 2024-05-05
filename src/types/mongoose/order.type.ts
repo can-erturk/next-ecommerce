@@ -1,22 +1,22 @@
 import { Document } from 'mongoose';
 
-interface OrderItem {
+type OrderItem = {
   product_id: string;
   quantity: number;
-}
+};
 
-interface Price {
+type Price = {
   subtotal: number;
   shipping: number;
   total: number;
-}
+};
 
-interface Address {
+type Address = {
   street: string;
   city: string;
   state: string;
   zip: string;
-}
+};
 
 type ShippingInfo = {
   carrier: string;
