@@ -1,10 +1,10 @@
 import connectDB from '@/config/mongodb/connectDB';
 import Category from '@models/category.model';
 import response from '@api-helpers/response';
-import { NextRequest } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { CategoryType } from '@/types/mongoose/category.type';
 
-export async function GET(req: NextRequest) {
+export async function GET(req: NextRequest): Promise<NextResponse> {
   const { searchParams }: URL = new URL(req.url);
   const category_id: string | null = searchParams.get('category_id');
   const path: string | null = searchParams.get('path');

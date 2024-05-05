@@ -2,10 +2,10 @@ import connectDB from '@/config/mongodb/connectDB';
 import User from '@models/user.model';
 import { isValidObjectId } from 'mongoose';
 import response from '@api-helpers/response';
-import { NextRequest } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { UserType } from '@/types/mongoose/user.type';
 
-export async function GET(req: NextRequest) {
+export async function GET(req: NextRequest): Promise<NextResponse> {
   const { searchParams }: URL = new URL(req.url);
   const _id: string | null = searchParams.get('user_id');
 

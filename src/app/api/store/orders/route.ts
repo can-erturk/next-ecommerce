@@ -1,10 +1,10 @@
 import connectDB from '@/config/mongodb/connectDB';
 import Order from '@models/order.model';
 import response from '@api-helpers/response';
-import { NextRequest } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { OrderType } from '@/types/mongoose/order.type';
 
-export async function GET(req: NextRequest) {
+export async function GET(req: NextRequest): Promise<NextResponse> {
   const { searchParams }: URL = new URL(req.url);
   const user_id: string | null = searchParams.get('user_id');
 

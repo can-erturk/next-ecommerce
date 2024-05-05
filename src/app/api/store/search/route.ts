@@ -2,9 +2,9 @@ import connectDB from '@/config/mongodb/connectDB';
 import Product from '@models/product.model';
 import Category from '@models/category.model';
 import response from '@api-helpers/response';
-import { NextRequest } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
-export async function GET(req: NextRequest) {
+export async function GET(req: NextRequest): Promise<NextResponse> {
   const { searchParams }: URL = new URL(req.url);
   const searchQuery: string | null = searchParams.get('q');
 
