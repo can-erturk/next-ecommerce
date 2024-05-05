@@ -3,11 +3,15 @@ import User from '@models/user.model';
 import { sha256 } from './crypter';
 import { UserType } from '@/types/mongoose/user.type';
 
-export default async function setVerificationKey(email: string): Promise<{
+export type setVerificationKeyResponse = {
   status: boolean;
   message: string;
   verificationURL?: string;
-}> {
+};
+
+export default async function setVerificationKey(
+  email: string,
+): Promise<setVerificationKeyResponse> {
   // Generate verification key
   const key: string = sha256(email + Math.random().toString());
 

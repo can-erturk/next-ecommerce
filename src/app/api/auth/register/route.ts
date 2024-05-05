@@ -1,4 +1,4 @@
-import { NextRequest } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import connectDB from '@/config/mongodb/connectDB';
 import User from '@models/user.model';
 import bcrypt from 'bcryptjs';
@@ -6,8 +6,17 @@ import response from '@api-helpers/response';
 import { UserType } from '@/types/mongoose/user.type';
 import { emailRegex } from '@/lib/utils/regex';
 
-export async function POST(req: NextRequest) {
-  const { name, username, email, password, privacyPolicy } = await req.json();
+type registerBody = {
+  name: string;
+  username: string;
+  email: string;
+  password: string;
+  privacyPolicy: string;
+};
+
+export async function POST(req: NextRequest): Promise<NextResponse> {
+  const { name, username, email, password, privacyPolicy }: registerBody =
+    await req.json();
 
   if (!name || !email || !username || !password) {
     return response({

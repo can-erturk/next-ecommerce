@@ -2,12 +2,16 @@ import connectDB from '@/config/mongodb/connectDB';
 import { UserType } from '@/types/mongoose/user.type';
 import User from '@models/user.model';
 
-export default async function checkVerification(email: string): Promise<{
+export type checkVerificationResponse = {
   status: boolean;
   key?: string;
   keyExpires?: Date;
   message?: string;
-}> {
+};
+
+export default async function checkVerification(
+  email: string,
+): Promise<checkVerificationResponse> {
   try {
     await connectDB();
     const user: UserType | null = await User.findOne({ email });
