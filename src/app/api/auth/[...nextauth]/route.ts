@@ -1,4 +1,3 @@
-import { NextRequest, NextResponse } from 'next/server';
 import NextAuth, { AuthOptions } from 'next-auth';
 import providers from './helpers/providers';
 import callbacks from './helpers/callbacks';
