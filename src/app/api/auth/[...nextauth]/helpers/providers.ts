@@ -9,4 +9,5 @@ const credentials: CredentialsConfig = CredentialsProvider({
   authorize,
 });
 
-export default [credentials];
+const providers = [credentials];
+export default providers;
