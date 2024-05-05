@@ -41,8 +41,9 @@ export default function EmailVerification({
             </a>
 
             <p className="text-sm my-2">
-              If you're having trouble clicking the "Verify my email address"
-              button, copy and paste the URL below into your web browser:
+              If you&apos;re having trouble clicking the &quot;Verify my email
+              address&quot; button, copy and paste the URL below into your web
+              browser:
             </p>
 
             <a
